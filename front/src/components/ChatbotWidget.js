@@ -6,7 +6,7 @@ function ChatbotWidget() {
   const [messages, setMessages] = useState([
     { 
       sender: "bot", 
-      text: "👋 Bonjour ! Je suis votre assistant IA d'Honest-Inn. Comment puis-je vous aider aujourd'hui ?",
+      text: "👋 Bonjour ! Je suis Alsi, votre assistant IA d'Honest-Inn. Comment puis-je vous aider aujourd'hui ?",
       timestamp: new Date(),
       files: []
     }
@@ -62,8 +62,8 @@ function ChatbotWidget() {
       files.forEach((file, index) => {
         formData.append(`file_${index}`, file);
       });
-
-      const response = await fetch("http://localhost:5000/api/chat", {
+      console.log(process.env.REACT_APP_API_HOST)
+      const response = await fetch(process.env.REACT_APP_API_HOST +  "/chat", {
         method: "POST",
         body: formData
       });
@@ -163,6 +163,168 @@ function ChatbotWidget() {
   return (
     <>
       {/* Styles CSS intégrés */}
+
+
+      <div className="chatbot-widget">
+        {/* Bouton flottant */}
+        {!isOpen && (
+          <div className="chat-button" onClick={() => setIsOpen(true)}>
+            <div className="notification-badge">1</div>
+            <div className="chat-button-main">
+              💬
+              <div className="chat-button-ping"></div>
+            </div>
+            <div className="chat-tooltip">
+              Besoin d'aide ? Cliquez ici !
+            </div>
+          </div>
+        )}
+
+        {/* Fenêtre de chat */}
+        {isOpen && (
+          <div className="chat-window" style={{ height: isMinimized ? '80px' : '600px' }}>
+            {/* Header */}
+            <div className="chat-header">
+              <div className="chat-header-info">
+                <div className="chat-avatar">🤖</div>
+                <div className="chat-header-text">
+                  <h3>Assistant Honest-Inn</h3>
+                  <p>En ligne • Répond en quelques secondes</p>
+                </div>
+              </div>
+              
+              <div className="chat-controls">
+                <button
+                  className="chat-control-btn"
+                  onClick={() => setIsMinimized(!isMinimized)}
+                  title={isMinimized ? "Agrandir" : "Minimiser"}
+                >
+                  {isMinimized ? '🔼' : '🔽'}
+                </button>
+                <button
+                  className="chat-control-btn"
+                  onClick={() => setIsOpen(false)}
+                  title="Fermer"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {!isMinimized && (
+              <>
+                {/* Messages */}
+                <div className="chat-messages">
+                  {messages.map((msg, i) => (
+                    <div key={i} className={`message-group ${msg.sender}`}>
+                      <div className={`message-avatar ${msg.sender}`}>
+                        {msg.sender === 'user' ? '👤' : '🤖'}
+                      </div>
+                      <div className="message-content">
+                        <div className={`message-bubble ${msg.sender}`}>
+                          {msg.text && <p className="message-text">{msg.text}</p>}
+                          {renderMessageFiles(msg.files)}
+                          <p className={`message-time ${msg.sender}`}>
+                            {formatTime(msg.timestamp)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {isLoading && (
+                    <div className="message-group bot">
+                      <div className="message-avatar bot">🤖</div>
+                      <div className="message-bubble bot">
+                        <div className="typing-indicator">
+                          <div className="typing-dot"></div>
+                          <div className="typing-dot"></div>
+                          <div className="typing-dot"></div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input */}
+                <div className="chat-input-container">
+                  <div className="chat-input-wrapper">
+                    <div className="chat-input-area">
+                      {files.length > 0 && (
+                        <div className="file-previews">
+                          {files.map((file, index) => (
+                            <div key={index} className="file-preview">
+                              {renderFilePreview(file)}
+                              <button 
+                                className="file-remove"
+                                onClick={() => setFiles(files.filter((_, i) => i !== index))}
+                              >
+                                ×
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      <div className="chat-input-row">
+                        <button 
+                          className="file-input-btn"
+                          onClick={() => fileInputRef.current.click()}
+                          title="Ajouter un fichier"
+                        >
+                          📎
+                        </button>
+                        <input
+                          type="file"
+                          ref={fileInputRef}
+                          onChange={handleFileChange}
+                          style={{ display: 'none' }}
+                          
+                          accept=".pdf,.jpg,.jpeg,.png,.gif,.txt"
+                        />
+                        
+                        <textarea
+                          ref={inputRef}
+                          className="chat-input"
+                          value={input}
+                          onChange={(e) => setInput(e.target.value)}
+                          onKeyDown={handleKeyDown}
+                          placeholder="Tapez votre message..."
+                          disabled={isLoading}
+                          rows={1}
+                        />
+                        
+                        <button
+                          className="chat-send-btn"
+                          onClick={sendMessage}
+                          disabled={isLoading || (!input.trim() && files.length === 0)}
+                          title="Envoyer"
+                        >
+                          ➤
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="chat-footer">
+                    Alimenté par l'IA • Honest-Inn © 2025
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+export default ChatbotWidget;
+
+
+
       <style>{`
         .chatbot-widget {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -645,161 +807,3 @@ function ChatbotWidget() {
           }
         }
       `}</style>
-
-      <div className="chatbot-widget">
-        {/* Bouton flottant */}
-        {!isOpen && (
-          <div className="chat-button" onClick={() => setIsOpen(true)}>
-            <div className="notification-badge">1</div>
-            <div className="chat-button-main">
-              💬
-              <div className="chat-button-ping"></div>
-            </div>
-            <div className="chat-tooltip">
-              Besoin d'aide ? Cliquez ici !
-            </div>
-          </div>
-        )}
-
-        {/* Fenêtre de chat */}
-        {isOpen && (
-          <div className="chat-window" style={{ height: isMinimized ? '80px' : '600px' }}>
-            {/* Header */}
-            <div className="chat-header">
-              <div className="chat-header-info">
-                <div className="chat-avatar">🤖</div>
-                <div className="chat-header-text">
-                  <h3>Assistant Honest-Inn</h3>
-                  <p>En ligne • Répond en quelques secondes</p>
-                </div>
-              </div>
-              
-              <div className="chat-controls">
-                <button
-                  className="chat-control-btn"
-                  onClick={() => setIsMinimized(!isMinimized)}
-                  title={isMinimized ? "Agrandir" : "Minimiser"}
-                >
-                  {isMinimized ? '🔼' : '🔽'}
-                </button>
-                <button
-                  className="chat-control-btn"
-                  onClick={() => setIsOpen(false)}
-                  title="Fermer"
-                >
-                  ✕
-                </button>
-              </div>
-            </div>
-
-            {!isMinimized && (
-              <>
-                {/* Messages */}
-                <div className="chat-messages">
-                  {messages.map((msg, i) => (
-                    <div key={i} className={`message-group ${msg.sender}`}>
-                      <div className={`message-avatar ${msg.sender}`}>
-                        {msg.sender === 'user' ? '👤' : '🤖'}
-                      </div>
-                      <div className="message-content">
-                        <div className={`message-bubble ${msg.sender}`}>
-                          {msg.text && <p className="message-text">{msg.text}</p>}
-                          {renderMessageFiles(msg.files)}
-                          <p className={`message-time ${msg.sender}`}>
-                            {formatTime(msg.timestamp)}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  
-                  {isLoading && (
-                    <div className="message-group bot">
-                      <div className="message-avatar bot">🤖</div>
-                      <div className="message-bubble bot">
-                        <div className="typing-indicator">
-                          <div className="typing-dot"></div>
-                          <div className="typing-dot"></div>
-                          <div className="typing-dot"></div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div ref={messagesEndRef} />
-                </div>
-
-                {/* Input */}
-                <div className="chat-input-container">
-                  <div className="chat-input-wrapper">
-                    <div className="chat-input-area">
-                      {files.length > 0 && (
-                        <div className="file-previews">
-                          {files.map((file, index) => (
-                            <div key={index} className="file-preview">
-                              {renderFilePreview(file)}
-                              <button 
-                                className="file-remove"
-                                onClick={() => setFiles(files.filter((_, i) => i !== index))}
-                              >
-                                ×
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      <div className="chat-input-row">
-                        <button 
-                          className="file-input-btn"
-                          onClick={() => fileInputRef.current.click()}
-                          title="Ajouter un fichier"
-                        >
-                          📎
-                        </button>
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          onChange={handleFileChange}
-                          style={{ display: 'none' }}
-                          multiple
-                          accept=".pdf,.jpg,.jpeg,.png,.gif,.txt"
-                        />
-                        
-                        <textarea
-                          ref={inputRef}
-                          className="chat-input"
-                          value={input}
-                          onChange={(e) => setInput(e.target.value)}
-                          onKeyDown={handleKeyDown}
-                          placeholder="Tapez votre message..."
-                          disabled={isLoading}
-                          rows={1}
-                        />
-                        
-                        <button
-                          className="chat-send-btn"
-                          onClick={sendMessage}
-                          disabled={isLoading || (!input.trim() && files.length === 0)}
-                          title="Envoyer"
-                        >
-                          ➤
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="chat-footer">
-                    Alimenté par l'IA • Honest-Inn © 2025
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        )}
-      </div>
-    </>
-  );
-}
-
-export default ChatbotWidget;
