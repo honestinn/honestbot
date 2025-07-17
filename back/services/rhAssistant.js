@@ -10,6 +10,42 @@ const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
 const MISTRAL_BASE_URL = "https://api.mistral.ai/v1";
 const CONVERSATION_CACHE = new NodeCache({ stdTTL: 7200 }); // 2 heures
 
+// 🧠 GESTIONNAIRE DE MÉMOIRE PERSISTANTE
+class MemoryManager {
+  constructor() {
+    this.conversations = new Map();
+    this.cleanupInterval = 30 * 60 * 1000; // 30 minutes
+    this.maxConversationAge = 7200 * 1000; // 2 heures (même que NodeCache)
+    this.startCleanup();
+  }
+
+  getOrCreateConversation(userId) {
+    if (!this.conversations.has(userId)) {
+      this.conversations.set(userId, {
+        memory: new ConversationMemory(userId),
+        lastActivity: Date.now()
+      });
+    } else {
+      this.conversations.get(userId).lastActivity = Date.now();
+    }
+    return this.conversations.get(userId).memory;
+  }
+
+  startCleanup() {
+    setInterval(() => {
+      const now = Date.now();
+      for (const [userId, conversation] of this.conversations.entries()) {
+        if (now - conversation.lastActivity > this.maxConversationAge) {
+          this.conversations.delete(userId);
+        }
+      }
+    }, this.cleanupInterval);
+  }
+}
+
+// Instance globale du gestionnaire de mémoire
+const memoryManager = new MemoryManager();
+
 // Chemins des fichiers de données
 const FAQ_PATH = path.join(__dirname, "../data/faq_rh_questions.json");
 const JOBS_PATH = path.join(__dirname, "../data/job_offers.json");
@@ -19,7 +55,7 @@ const CANDIDATES_PATH = path.join(__dirname, "../data/candidates.json");
 class ConversationMemory {
   constructor(userId) {
     this.userId = userId;
-    this.context = CONVERSATION_CACHE.get(userId) || {
+    this.context = {
       history: [],
       sessionStart: Date.now(),
       extractedFileData: null,
@@ -484,6 +520,7 @@ Si ce fichier contient un CV, analyse-le pour proposer des offres correspondante
 - Respecte la confidentialité des données personnelles
 - Ne dis jamais bonjour ou aucune formule de salutation en début de réponse, sauf si l'utilisateur te le demande
 - Ne réponds pas à des questions qui ne sont pas en lien avec le recrutement
+- Si l'utilisateur mentionne un nom/prénom, dis que tu ne peux pas traiter de données personnelles
 
 `;
 
@@ -610,8 +647,8 @@ async function handleChatMessage(userMessage, userId, uploadedFile = null) {
       throw new Error("ID utilisateur invalide");
     }
 
-    // Initialiser la mémoire de conversation
-    const memory = new ConversationMemory(userId);
+    // 🔧 CORRECTION: Utiliser le gestionnaire de mémoire persistante
+    const memory = memoryManager.getOrCreateConversation(userId);
 
     // Analyser et stocker le type de demande
     const requestType = analyzeRequestType(userMessage);
@@ -674,6 +711,7 @@ async function handleChatMessage(userMessage, userId, uploadedFile = null) {
     };
 
     console.log(`✅ Réponse générée pour ${userId} (type: ${requestType})`);
+    console.log(`📊 Historique: ${memory.context.history.length} messages`);
     return response;
   } catch (error) {
     console.error("❌ Erreur traitement message chatbot:", error);
@@ -693,14 +731,18 @@ async function handleChatMessage(userMessage, userId, uploadedFile = null) {
 
 // 🔄 FONCTIONS UTILITAIRES
 function resetConversation(userId) {
+  // Supprimer de NodeCache
   CONVERSATION_CACHE.del(userId);
+  // Supprimer du gestionnaire de mémoire
+  memoryManager.conversations.delete(userId);
   console.log(`🔄 Conversation réinitialisée pour ${userId}`);
 }
 
 function getConversationStats(userId) {
-  const context = CONVERSATION_CACHE.get(userId);
-  if (!context) return null;
+  const conversation = memoryManager.conversations.get(userId);
+  if (!conversation) return null;
 
+  const context = conversation.memory.context;
   return {
     messageCount: context.history.length,
     sessionDuration: Date.now() - context.sessionStart,
@@ -726,24 +768,3 @@ module.exports = {
   analyzeRequestType,
   loadKnowledgeBase,
 };
-
-// 🧪 EXEMPLE D'UTILISATION
-/*
-(async () => {
-  // Test recherche d'emploi
-  const jobSearchMessage = "Je cherche un poste de serveur dans un restaurant";
-  const jobResponse = await handleChatMessage(jobSearchMessage, "test-user-job");
-  console.log("=== RECHERCHE D'EMPLOI ===");
-  console.log("Réponse:", jobResponse.response);
-  console.log("Type détecté:", jobResponse.requestType);
-  console.log("Offres trouvées:", jobResponse.relevantJobs.length);
-  
-  // Test recherche de candidats
-  const candidateSearchMessage = "Avez-vous des profils de cuisiniers expérimentés disponibles ?";
-  const candidateResponse = await handleChatMessage(candidateSearchMessage, "test-user-recruiter");
-  console.log("\n=== RECHERCHE DE CANDIDATS ===");
-  console.log("Réponse:", candidateResponse.response);
-  console.log("Type détecté:", candidateResponse.requestType);
-  console.log("Candidats trouvés:", candidateResponse.relevantCandidates.length);
-})();
-*/
