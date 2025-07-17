@@ -1,0 +1,194 @@
+[
+  {
+    "question": "Comment créer un compte sur Honest-Inn Connect ?",
+    "answer": "Créer un compte est simple ! 😊 Suivez ces étapes : 1️⃣ Cliquez sur 'Créer un compte' en haut à droite 2️⃣ Choisissez 'Je suis un établissement' ou 'Je suis un collaborateur' 3️⃣ Complétez tous les champs obligatoires 4️⃣ Acceptez les CGU et la politique de confidentialité 5️⃣ Validez votre inscription. Note importante : Les collaborateurs doivent s'inscrire via notre app mobile ! 📱",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quels sont les deux types de comptes disponibles ?",
+    "answer": "Honest-Inn Connect propose 2 types de comptes : 🏨 **Établissement** : Pour les hôtels, restaurants cherchant des candidats qualifiés pour des missions temporaires ou permanentes 👨‍💼 **Collaborateur** : Pour les professionnels souhaitant entreprendre des missions en tant que salariés ou indépendants dans l'hôtellerie-restauration 🍽️",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment configurer le paiement pour publier des missions ?",
+    "answer": "⚠️ OBLIGATOIRE pour publier des missions ! Voici les étapes : 1️⃣ Accédez à 'Paramètres de paiement' dans votre tableau de bord 2️⃣ Remplissez le formulaire SEPA avec : • Nom du titulaire • Email • IBAN professionnel 3️⃣ Acceptez les conditions de prélèvement Stripe 4️⃣ Cliquez sur 'Activer le Prélèvement SEPA' ✅ Sans cette configuration, impossible de créer des missions ! 💳",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment fonctionne le système de paiement ?",
+    "answer": "Le système fonctionne en 4 étapes simples : 1️⃣ **Création mission** : Aucun prélèvement immédiat 2️⃣ **Attribution** : Prélèvement programmé quand collaborateur accepte + établissement valide 3️⃣ **Validation mission** : L'établissement valide la mission réalisée 4️⃣ **Prélèvement auto** : SEPA effectué selon conditions acceptées 💡 Le montant inclut la rémunération + frais de service. Facture détaillée disponible ! 📄",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment créer une nouvelle mission ?",
+    "answer": "Créer une mission c'est facile ! 🚀 1️⃣ Depuis votre tableau de bord, cliquez 'Créer une nouvelle mission' 2️⃣ Complétez le formulaire avec toutes les infos requises 3️⃣ Vérifiez tout et cliquez 'Publier la mission' ⚠️ Rappel important : Vous devez avoir configuré votre IBAN professionnel et activé le prélèvement SEPA avant de pouvoir publier ! 💳",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment suivre et valider les missions ?",
+    "answer": "Le suivi est intuitif ! 📊 1️⃣ Consultez les candidatures depuis votre tableau de bord 2️⃣ Évaluez les profils et sélectionnez le meilleur candidat 3️⃣ Une fois la mission effectuée, connectez-vous et cliquez 'Valider la mission' ✅ Cette validation déclenche le processus de paiement automatique ! 💰",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment rechercher des missions en tant que collaborateur ?",
+    "answer": "Trouvez votre mission idéale ! 🎯 1️⃣ Connectez-vous et cliquez 'Nos Offres D'emploi' 2️⃣ Utilisez nos filtres avancés : • Type de contrat • Fonction • Localisation • Salaire • Expérience • Temps/Mode de travail • Date de publication 3️⃣ Cliquez 'Plus de détails' pour voir toutes les infos ! 📋",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment postuler à une mission ?",
+    "answer": "Postuler c'est simple ! 📝 1️⃣ Depuis la page détails de l'offre, cliquez 'Postuler à cette offre' 2️⃣ Vérifiez que vos informations de profil sont complètes et correctes 3️⃣ Cliquez 'Envoyer ma candidature' pour finaliser ✅ Assurez-vous d'avoir un profil complet pour maximiser vos chances ! 🌟",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment contacter le support Honest-Inn ?",
+    "answer": "Nous sommes là pour vous aider ! 🤝 📞 **Téléphone** : +33 1 83 75 63 26 📧 **Email** : contact@honest-inn.com Notre équipe support est disponible pour répondre à toutes vos questions et vous accompagner dans l'utilisation de la plateforme ! 💬",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Y a-t-il une application mobile ?",
+    "answer": "Oui, nous avons une super app ! 📱 L'application Honest-Inn Connect est disponible sur : • iOS 🍎 • Android 🤖 **Avantages** : • Expérience fluide et intuitive • Optimisée pour les collaborateurs • Inscription sécurisée directement via l'app Téléchargez-la dès maintenant pour une expérience optimale ! ⭐",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Qu'est-ce qu'Honest-Inn Connect ?",
+    "answer": "Honest-Inn Connect est LA plateforme de recrutement révolutionnaire pour l'hôtellerie-restauration ! 🏨🍽️ **Notre mission** : Faciliter la mise en relation entre établissements et professionnels du secteur **Avantages** : • Processus simplifié • Paiements sécurisés • Interface intuitive • App mobile dédiée Une solution complète pour transformer votre recrutement ! ✨",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Que se passe-t-il si je n'ai pas configuré mon IBAN ?",
+    "answer": "⚠️ ATTENTION : Sans IBAN configuré, vous ne pourrez PAS publier de missions ! Voici pourquoi c'est obligatoire : • Sécurité des transactions 💳 • Prélèvements automatiques • Conformité légale • Protection des deux parties Pour configurer : Allez dans 'Paramètres de paiement' → Ajoutez votre IBAN professionnel → Activez le prélèvement SEPA ✅",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Combien coûte l'utilisation de la plateforme ?",
+    "answer": "Les frais de service Honest-Inn Connect sont inclus dans le montant total prélevé après validation de chaque mission 💰 **Transparence totale** : • Pas de frais cachés • Facture détaillée disponible • Prélèvement uniquement après mission validée • Montant = Rémunération collaborateur + Frais service Pour plus de détails tarifaires, contactez notre équipe ! 📞",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Puis-je annuler une mission après l'avoir créée ?",
+    "answer": "Pour les annulations de missions, je vous recommande de contacter directement notre support ! 📞 **Contact** : • Téléphone : +33 1 83 75 63 26 • Email : contact@honest-inn.com Notre équipe vous expliquera la procédure et les conditions selon votre situation spécifique. Nous sommes là pour vous accompagner ! 🤝",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment modifier mon profil établissement ?",
+    "answer": "Modifier votre profil est facile ! ✏️ 1️⃣ Connectez-vous à votre compte établissement 2️⃣ Accédez à votre tableau de bord 3️⃣ Cliquez sur les paramètres/profil 4️⃣ Modifiez les informations souhaitées 5️⃣ Sauvegardez les modifications **Important** : Gardez vos informations à jour pour une meilleure visibilité ! 📈",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quelles informations dois-je fournir pour le prélèvement SEPA ?",
+    "answer": "Pour activer le prélèvement SEPA, vous devez fournir : 📋 **Informations requises** : • Nom du titulaire du compte bancaire • Adresse e-mail de contact • IBAN (Numéro de compte bancaire international) • Acceptation des conditions générales Stripe **Important** : Utilisez uniquement votre IBAN professionnel pour la sécurité ! 🔒",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Puis-je me faire rembourser un prélèvement ?",
+    "answer": "Oui, vous avez des droits de remboursement ! 💳 **Vos droits** : • Remboursement possible par votre banque • Selon les modalités de votre contrat bancaire • Délai : 8 semaines max après débit du compte **Procédure** : Contactez directement votre banque avec les justificatifs. Pour questions spécifiques, notre support est disponible ! 📞",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Pourquoi les collaborateurs doivent s'inscrire via l'app mobile ?",
+    "answer": "L'inscription via app mobile garantit une expérience optimale ! 📱 **Avantages sécurité** : • Authentification renforcée • Expérience sécurisée • Interface optimisée • Notifications en temps réel **Fonctionnalités** : • Recherche missions fluide • Candidature simplifiée • Suivi en direct Téléchargez l'app pour profiter de tous ces avantages ! ⭐",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment télécharger l'application mobile ?",
+    "answer": "Télécharger notre app c'est simple ! 📲 **Disponible sur** : • App Store (iOS) 🍎 • Google Play Store (Android) 🤖 **Comment procéder** : 1️⃣ Recherchez 'Honest-Inn Connect' 2️⃣ Téléchargez et installez 3️⃣ Créez votre compte collaborateur Un QR code est aussi disponible sur notre site web ! 📷",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Qu'est-ce qui est inclus dans la facture ?",
+    "answer": "Votre facture détaillée comprend : 📄 **Éléments facturés** : • Rémunération du collaborateur 💰 • Frais de service Honest-Inn Connect • Détail de la mission effectuée • Dates et durée de la prestation **Transparence** : • Aucun frais caché • Facture disponible dans votre espace client • Prélèvement uniquement après validation mission ✅",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment configurer le paiement pour publier des missions ?",
+    "answer": "Pour configurer le paiement et publier des missions sur Honest-Inn Connect, suivez ces étapes :  • 🏦 Accédez à \"Paramètres de paiement\" dans votre compte Établissement • 💳 Ajoutez votre IBAN professionnel (obligatoire pour publier des missions) • ✅ Activez le prélèvement SEPA • 📄 Acceptez les conditions Stripe  Il est important de noter que cette configuration est obligatoire pour publier des missions sur notre plateforme. Si vous avez des questions ou avez besoin d'aide, n'hésitez pas à contacter notre équipe à +33 1 83 75 63 26 ou contact@honest-inn.com.",
+    "timestamp": "2025-05-22T15:19:45.226Z"
+  },
+  {
+    "question": "Comment activer le paiement pour publier des missions ?",
+    "answer": "🤑 Pour activer le paiement et publier des missions sur Honest-Inn Connect, suivez ces étapes :  • 🏦 Accédez à vos paramètres de compte en cliquant sur votre icône de profil dans le coin supérieur droit de la page. • 💳 Configrez vos informations de paiement en ajoutant votre IBAN professionnel. • ✅ Activez le prélèvement SEPA pour permettre les paiements automatiques. • 📄 Acceptez les conditions Stripe pour sécuriser vos transactions.  Une fois que vous aurez configuré vos informations de paiement, vous pourrez publier vos missions et recevoir les paiements SEPA automatiquement une fois que les missions seront validées. Si vous avez des questions ou des difficultés, n'hésitez pas à contacter notre équipe de support à +33 1 83 75 63 26 ou à contact@honest-inn.com.",
+    "timestamp": "2025-05-22T15:21:18.588Z"
+  },
+  {
+    "question": "Quelle est la mission principale de Honest-Inn Connect ?",
+    "answer": "Honest-Inn Connect est une plateforme digitale de mise en relation entre entreprises (hôtels/restaurants) et professionnels indépendants, avec gestion automatisée des aspects administratifs et financiers. 🚀 Elle permet aux entreprises de publier des missions et de recruter des collaborateurs qualifiés de manière sécurisée et conforme aux réglementations.",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quels sont les modules fonctionnels inclus dans la plateforme ?",
+    "answer": "La plateforme inclut : 📌 Gestion complète des comptes collaborateurs 📌 Administration des missions (publication, candidature) 📌 Gestion des paiements (prélèvements clients, virements collaborateurs) 📌 Interface administrative 📌 Messagerie interne et notifications 📌 Vérification des documents 📌 Tableaux de bord analytiques. Tout cela avec une interface intuitive ! ✨",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quelles informations sont nécessaires pour créer un compte collaborateur ?",
+    "answer": "Pour s'inscrire comme collaborateur, il faut fournir : 📝 **Infos personnelles** (nom, prénom, date de naissance, adresse, téléphone) 💼 **Infos professionnelles** (statut juridique, SIRET, code APE) 💳 **Infos bancaires** (IBAN, BIC) 🛠️ **Compétences/expériences** 📄 **Documents d'identité** (CNI/passeport). Le tout avec validation en temps réel et double confirmation par email pour sécurité ! 🔒",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment fonctionne le système de paiement pour les collaborateurs ?",
+    "answer": "Le système financier offre : 💰 Tableau de bord des revenus par période 📅 Calendrier prévisionnel des paiements 📊 Historique détaillé des transactions 🧾 Génération automatique de documents comptables. Bonus : Calcul automatisé des montants nets après prélèvements, planification des virements, et notifications avant/après chaque mouvement ! ⏳",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quelle est la couverture géographique initiale de la plateforme ?",
+    "answer": "🌍 **Version initiale** : France métropolitaine uniquement, avec interface en français et conformité à la législation française. Les exclusions : pas d'internationalisation, pas de support multilingue, et pas de gestion des devises autres que l'Euro (€). Une expansion future est possible !",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quels sont les critères de succès du projet ?",
+    "answer": "📊 **Critères quantitatifs** : Objectifs d'utilisateurs actifs • Volume de transactions • Performance technique (temps réponse <2s) • Taux d'erreur <0.5%. 🌟 **Critères qualitatifs** : NPS >40 • Score SUS >80 (facilité d'utilisation) • Adoption des fonctionnalités clés. L'équipe surveille ces KPI de près ! 📈",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Quels services ne sont PAS inclus dans la plateforme ?",
+    "answer": "🚫 **Exclusions** : Pas de 2FA (authentification à 2 facteurs) • Pas de réseaux sociaux avancés • Pas de module de formation • Pas de gestion de paie pour salariés • Pas d'intégration avec des ERP • Pas de service client 24/7 • Pas de conseil juridique/fiscal. La version 1 se concentre sur l'essentiel !",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "Comment fonctionne le processus de candidature aux missions ?",
+    "answer": "Le processus est optimisé : 🎯 Interface en 3 étapes max 📝 Lettre de motivation dynamique ❓ Questions de présélection 📂 Portfolio digital intégré ⚡ Option 'candidature express'. Le système propose même : un score de compatibilité profil-mission, des suggestions pour mettre en avant son profil, et des confirmations par email avec récapitulatif ! 📩",
+    "timestamp": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "question": "bonjour cv",
+    "answer": "Bonjour !  Je suis ravi de vous aider ! Malheureusement, il semblerait que les informations relatives aux offres disponibles soient incomplètes. Pour obtenir des informations plus détaillées sur ces offres, je vous recommande de contacter directement les entreprises concernées.  Si vous avez des questions sur la façon de postuler à ces offres ou nécessitez de l'aide pour configurer votre compte Candidat sur Honest-Inn Connect, n'hésitez pas à me poser la question !",
+    "timestamp": "2025-05-23T07:47:45.994Z"
+  },
+
+  {
+    "question": "Quand Honest-Inn a-t-elle été fondée ?",
+    "answer": "Honest-Inn a été fondée en octobre 2021."
+  },
+  {
+    "question": "Quel est le siège social de Honest-Inn ?",
+    "answer": "Le siège social est situé au 31bis Rue des Longs Prés, 92100 Boulogne-Billancourt."
+  },
+  {
+    "question": "Quel est le statut juridique de Honest-Inn ?",
+    "answer": "Honest-Inn est une Société par Actions Simplifiée (SAS)."
+  },
+  {
+    "question": "Qui est le dirigeant de Honest-Inn ?",
+    "answer": "Le dirigeant est Sofiane Touat."
+  },
+  {
+    "question": "Depuis quand Honest-Inn est-elle une société à mission ?",
+    "answer": "Depuis le 14 mars 2023."
+  },
+  {
+    "question": "Quel est le code NAF de Honest-Inn ?",
+    "answer": "Le code NAF est 7830Z – Autre mise à disposition de ressources humaines."
+  },
+  {
+    "question": "Quelles sont les valeurs clés de Honest-Inn ?",
+    "answer": "Honnêteté, engagement, respect, inclusion et responsabilité sociale."
+  },
+  {
+    "question": "Quels métiers Honest-Inn recrute-t-elle principalement ?",
+    "answer": "Réceptionnistes, gouvernant(e)s, équipier(ère)s polyvalent(e)s, technicien(ne)s."
+  },
+  {
+    "question": "Quel est le salaire minimum garanti par Honest-Inn ?",
+    "answer": "Un salaire au moins 10 % supérieur au SMIC."
+  }
+]

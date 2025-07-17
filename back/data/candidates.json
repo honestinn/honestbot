@@ -1,0 +1,405 @@
+[
+  {
+    "id": "cand_014",
+    "nom": "Amina Belkacem",
+    "email": "amina.belkacem@email.com",
+    "téléphone": "06 12 34 56 78",
+    "localisation": "Lyon, France",
+    "poste_recherché": "Data Analyst",
+    "compétences": [
+      "Python", "Pandas", "Power BI", "SQL", "Tableau"
+    ],
+    "expérience": [
+      {
+        "poste": "Stagiaire Data Analyst",
+        "entreprise": "EDF",
+        "durée": "6 mois",
+        "missions": [
+          "Nettoyage de données clients",
+          "Création de dashboards Power BI"
+        ]
+      }
+    ],
+    "formations": [
+      {
+        "diplôme": "Bachelor en Data & IA",
+        "établissement": "ECE Paris",
+        "année": "2025"
+      }
+    ],
+    "langues": ["Français", "Anglais"],
+    "certifications": ["Scrum Fundamentals", "Power BI Analyst"],
+    "date_ajout": "2025-05-22"
+  },
+  {
+     "id": "cand_101",
+  "nom": "Lucas Martin",
+  "email": "lucas.martin@email.com",
+  "téléphone": "06 45 32 10 98",
+  "localisation": "Marseille, France",
+  "poste_recherché": "Serveur",
+  "compétences": [
+    "Service en salle",
+    "Prise de commande",
+    "Gestion des encaissements",
+    "Maîtrise du logiciel Zettle",
+    "Accueil client"
+  ],
+  "expérience": [
+    {
+      "poste": "Serveur",
+      "entreprise": "Brasserie Le Sud",
+      "durée": "1 an",
+      "missions": [
+        "Accueil et placement des clients",
+        "Prise des commandes et service à table",
+        "Encaissements et gestion de la caisse"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "CAP Services en Brasserie-Café",
+      "établissement": "Lycée Hôtelier Bonneveine",
+      "année": "2023"
+    }
+  ],
+  "langues": ["Français", "Anglais"],
+  "certifications": ["HACCP"],
+  "date_ajout": "2025-05-28"
+  },
+  {
+  "id": "cand_102",
+  "nom": "Inès Bouchra",
+  "email": "ines.bouchra@email.com",
+  "téléphone": "07 89 56 34 12",
+  "localisation": "Nice, France",
+  "poste_recherché": "Réceptionniste",
+  "compétences": [
+    "Accueil client",
+    "Réservations",
+    "Logiciel Opera PMS",
+    "Facturation",
+    "Gestion des litiges"
+  ],
+  "expérience": [
+    {
+      "poste": "Réceptionniste",
+      "entreprise": "Hôtel Riviera",
+      "durée": "2 ans",
+      "missions": [
+        "Accueil physique et téléphonique des clients",
+        "Check-in / Check-out",
+        "Suivi des réservations et gestion de la facturation"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "BTS Hôtellerie-Restauration",
+      "établissement": "Institut Paul Augier",
+      "année": "2022"
+    }
+  ],
+  "langues": ["Français", "Anglais", "Espagnol"],
+  "certifications": ["HACCP", "Service Excellence en Hôtellerie"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_103",
+  "nom": "Julien Lefèvre",
+  "email": "julien.lefevre@email.com",
+  "téléphone": "06 22 33 44 55",
+  "localisation": "Bordeaux, France",
+  "poste_recherché": "Cuisinier",
+  "compétences": [
+    "Préparation des plats",
+    "Gestion des stocks",
+    "Hygiène alimentaire",
+    "Techniques de cuisson",
+    "Organisation de la cuisine"
+  ],
+  "expérience": [
+    {
+      "poste": "Commis de cuisine",
+      "entreprise": "Restaurant Le Vigneron",
+      "durée": "1 an et demi",
+      "missions": [
+        "Préparation des entrées et des desserts",
+        "Mise en place et nettoyage du poste",
+        "Respect des normes HACCP"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "CAP Cuisine",
+      "établissement": "CFA de Bordeaux",
+      "année": "2023"
+    }
+  ],
+  "langues": ["Français"],
+  "certifications": ["HACCP", "Cuisine Responsable"],
+  "date_ajout": "2025-05-28"
+}, 
+{
+  "id": "cand_104",
+  "nom": "Claire Dupont",
+  "email": "claire.dupont@email.com",
+  "téléphone": "06 78 91 23 45",
+  "localisation": "Paris, France",
+  "poste_recherché": "Chef de rang",
+  "compétences": [
+    "Gestion d’un rang",
+    "Service à l’assiette et au guéridon",
+    "Encadrement de commis",
+    "Relation client",
+    "Connaissances œnologiques"
+  ],
+  "expérience": [
+    {
+      "poste": "Chef de rang",
+      "entreprise": "Le Meurice",
+      "durée": "2 ans",
+      "missions": [
+        "Coordination du service dans une section dédiée",
+        "Conseil sur les mets et vins",
+        "Formation des nouveaux commis"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "BTS Management en Hôtellerie-Restauration",
+      "établissement": "Lycée Jean Drouant, Paris",
+      "année": "2021"
+    }
+  ],
+  "langues": ["Français", "Anglais", "Italien"],
+  "certifications": ["Service à la Française", "HACCP"],
+  "date_ajout": "2025-05-28"
+}, 
+{
+  "id": "cand_105",
+  "nom": "Fatou Ndiaye",
+  "email": "fatou.ndiaye@email.com",
+  "téléphone": "07 45 88 92 30",
+  "localisation": "Toulouse, France",
+  "poste_recherché": "Gouvernante d'hôtel",
+  "compétences": [
+    "Supervision du personnel d'étage",
+    "Contrôle de la propreté",
+    "Gestion des stocks de linge et produits",
+    "Organisation du planning",
+    "Relation client"
+  ],
+  "expérience": [
+    {
+      "poste": "Gouvernante d'étage",
+      "entreprise": "Hôtel Pullman Toulouse",
+      "durée": "3 ans",
+      "missions": [
+        "Encadrement d’une équipe de 10 femmes de chambre",
+        "Vérification des chambres et espaces publics",
+        "Formation du personnel"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "Titre professionnel Gouvernante",
+      "établissement": "AFPA Toulouse",
+      "année": "2020"
+    }
+  ],
+  "langues": ["Français", "Anglais"],
+  "certifications": ["HACCP", "Leadership Hôtellerie"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_106",
+  "nom": "Thomas Renaud",
+  "email": "thomas.renaud@email.com",
+  "téléphone": "06 33 22 11 99",
+  "localisation": "Lille, France",
+  "poste_recherché": "Manager F&B",
+  "compétences": [
+    "Gestion des équipes",
+    "Optimisation des coûts",
+    "Contrôle qualité",
+    "Relation fournisseurs",
+    "Stratégie de vente"
+  ],
+  "expérience": [
+    {
+      "poste": "Responsable Restauration",
+      "entreprise": "Hôtel Barrière Lille",
+      "durée": "4 ans",
+      "missions": [
+        "Gestion opérationnelle de 3 points de vente",
+        "Recrutement et encadrement du personnel",
+        "Suivi des indicateurs de performance"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "MBA Management Hôtelier International",
+      "établissement": "Vatel Lyon",
+      "année": "2019"
+    }
+  ],
+  "langues": ["Français", "Anglais", "Allemand"],
+  "certifications": ["Revenue Management", "HACCP", "Gestion d’équipe F&B"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_107",
+  "nom": "Sophie Moreau",
+  "email": "sophie.moreau@email.com",
+  "téléphone": "06 91 23 78 44",
+  "localisation": "Reims, France",
+  "poste_recherché": "Sommelière",
+  "compétences": [
+    "Conseil en vins",
+    "Accords mets et vins",
+    "Gestion de cave",
+    "Service du vin",
+    "Connaissances œnologiques internationales"
+  ],
+  "expérience": [
+    {
+      "poste": "Sommelière",
+      "entreprise": "Restaurant Étoilé La Vigne d'Or",
+      "durée": "2 ans",
+      "missions": [
+        "Élaboration de la carte des vins",
+        "Conseil aux clients sur les accords mets et vins",
+        "Gestion et stockage des bouteilles"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "Mention Complémentaire Sommellerie",
+      "établissement": "Lycée Hôtelier de Tain-l’Hermitage",
+      "année": "2022"
+    }
+  ],
+  "langues": ["Français", "Anglais"],
+  "certifications": ["WSET Level 2", "HACCP"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_108",
+  "nom": "Georges Petit",
+  "email": "georges.petit@email.com",
+  "téléphone": "07 84 65 98 32",
+  "localisation": "Strasbourg, France",
+  "poste_recherché": "Maître d'hôtel",
+  "compétences": [
+    "Organisation du service",
+    "Gestion d’équipe",
+    "Accueil des clients VIP",
+    "Coordination avec la cuisine",
+    "Formation du personnel"
+  ],
+  "expérience": [
+    {
+      "poste": "Maître d’hôtel",
+      "entreprise": "Hôtel Régent Petite France",
+      "durée": "5 ans",
+      "missions": [
+        "Supervision de l’équipe de salle",
+        "Gestion des réservations et des événements",
+        "Assurance de la qualité du service"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "BTS Responsable de l’hébergement et de la restauration",
+      "établissement": "École Ferrandi Paris",
+      "année": "2018"
+    }
+  ],
+  "langues": ["Français", "Anglais", "Allemand"],
+  "certifications": ["Leadership Service", "HACCP"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_109",
+  "nom": "Lina Haddad",
+  "email": "lina.haddad@email.com",
+  "téléphone": "06 77 88 99 00",
+  "localisation": "Montpellier, France",
+  "poste_recherché": "Pâtissière",
+  "compétences": [
+    "Création de desserts",
+    "Techniques de pâtisserie française",
+    "Travail du chocolat",
+    "Hygiène alimentaire",
+    "Dressage artistique"
+  ],
+  "expérience": [
+    {
+      "poste": "Pâtissière",
+      "entreprise": "Pâtisserie L’Éclat Sucré",
+      "durée": "3 ans",
+      "missions": [
+        "Création de pâtisseries fines et entremets",
+        "Veille aux normes sanitaires",
+        "Préparation pour commandes spéciales (mariages, événements)"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "CAP Pâtissier",
+      "établissement": "CFA des Métiers de Bouche Montpellier",
+      "année": "2021"
+    }
+  ],
+  "langues": ["Français"],
+  "certifications": ["HACCP", "Techniques avancées de pâtisserie"],
+  "date_ajout": "2025-05-28"
+},
+{
+  "id": "cand_109",
+  "nom": "Lina Haddad",
+  "email": "lina.haddad@email.com",
+  "téléphone": "06 77 88 99 00",
+  "localisation": "Montpellier, France",
+  "poste_recherché": "Pâtissière",
+  "compétences": [
+    "Création de desserts",
+    "Techniques de pâtisserie française",
+    "Travail du chocolat",
+    "Hygiène alimentaire",
+    "Dressage artistique"
+  ],
+  "expérience": [
+    {
+      "poste": "Pâtissière",
+      "entreprise": "Pâtisserie L’Éclat Sucré",
+      "durée": "3 ans",
+      "missions": [
+        "Création de pâtisseries fines et entremets",
+        "Veille aux normes sanitaires",
+        "Préparation pour commandes spéciales (mariages, événements)"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "diplôme": "CAP Pâtissier",
+      "établissement": "CFA des Métiers de Bouche Montpellier",
+      "année": "2021"
+    }
+  ],
+  "langues": ["Français"],
+  "certifications": ["HACCP", "Techniques avancées de pâtisserie"],
+  "date_ajout": "2025-05-28"
+}
+
+]

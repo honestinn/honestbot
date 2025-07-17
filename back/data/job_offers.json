@@ -1,0 +1,202 @@
+[
+  {
+    "id": "job_001",
+    "intitulé": "Développeur Data Python",
+    "entreprise": "Honest-Inn",
+    "lieu": "nice, France",
+    "type_contrat": "Stage",
+    "durée": "6 mois",
+    "salaire": "Non renseigné",
+    "missions": [
+      "Développement de pipelines de données en Python",
+      "Analyse de données avec Pandas et Scikit-learn",
+      "Mise en production de modèles ML"
+    ],
+    "compétences_requises": [
+      "Python", "Pandas", "scikit-learn", "SQL", "Git"
+    ],
+    "niveau_experience": "Débutant / Junior",
+    "niveau_etudes": "Bac+3 minimum",
+    "date_publication": "2025-05-22"
+  },
+  {
+    "id": "job_101",
+    "intitulé": "Réceptionniste en hôtel 4 étoiles",
+    "entreprise": "Hôtel Belle Époque",
+    "lieu": "Lyon, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "1 900€ brut / mois",
+    "missions": [
+      "Accueil des clients et gestion du check-in / check-out",
+      "Réponse aux appels et gestion des réservations",
+      "Collaboration avec les services de l’hôtel (ménage, restauration)"
+    ],
+    "compétences_requises": [
+      "Accueil client", "Logiciel Opera", "Anglais courant", "Organisation", "Travail en équipe"
+    ],
+    "niveau_experience": "1 an minimum en réception hôtelière",
+    "niveau_etudes": "Bac+2 en hôtellerie",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_102",
+    "intitulé": "Serveur / Serveuse en brasserie",
+    "entreprise": "Brasserie du Marché",
+    "lieu": "Toulouse, France",
+    "type_contrat": "CDD",
+    "durée": "3 mois (renouvelable)",
+    "salaire": "1 750€ net + pourboires",
+    "missions": [
+      "Prise de commande et service à table",
+      "Préparation de la salle et dressage des tables",
+      "Encaissements et relation client"
+    ],
+    "compétences_requises": [
+      "Service en salle", "Rapidité", "Sourire", "Encaissement", "Ponctualité"
+    ],
+    "niveau_experience": "Débutant accepté",
+    "niveau_etudes": "CAP ou équivalent",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_103",
+    "intitulé": "Chef de partie – Cuisine gastronomique",
+    "entreprise": "Restaurant Le Laurier",
+    "lieu": "Strasbourg, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "2 300€ brut / mois",
+    "missions": [
+      "Préparation des plats selon les normes du chef",
+      "Encadrement des commis de cuisine",
+      "Respect des normes d’hygiène (HACCP)"
+    ],
+    "compétences_requises": [
+      "Techniques culinaires", "Gestion d'équipe", "Hygiène", "Organisation", "Résistance au stress"
+    ],
+    "niveau_experience": "2 à 3 ans en cuisine gastronomique",
+    "niveau_etudes": "CAP Cuisine minimum",
+    "date_publication": "2025-05-28"
+  }, 
+  {
+    "id": "job_104",
+    "intitulé": "Gouvernant(e) d’étage",
+    "entreprise": "Hôtel Le Grand Palais",
+    "lieu": "Nice, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "2 000€ brut / mois",
+    "missions": [
+      "Superviser le travail des femmes de chambre",
+      "Contrôler la propreté des chambres et espaces communs",
+      "Gérer les stocks de linge et produits d’entretien"
+    ],
+    "compétences_requises": [
+      "Organisation", "Leadership", "Connaissance des normes HACCP", "Rigueur", "Discrétion"
+    ],
+    "niveau_experience": "2 ans minimum en hôtellerie",
+    "niveau_etudes": "Titre professionnel ou Bac pro Hôtellerie",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_105",
+    "intitulé": "Maître d’hôtel – Restaurant gastronomique",
+    "entreprise": "Maison Gourmande",
+    "lieu": "Paris, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "2 800€ brut / mois",
+    "missions": [
+      "Accueillir et accompagner les clients VIP",
+      "Superviser le personnel de salle",
+      "Garantir la qualité du service et le bon déroulement du service"
+    ],
+    "compétences_requises": [
+      "Excellence du service", "Gestion d’équipe", "Français & Anglais courant", "Sens du détail", "Connaissance œnologique"
+    ],
+    "niveau_experience": "5 ans dans un poste similaire",
+    "niveau_etudes": "Bac+2 Hôtellerie-Restauration",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_106",
+    "intitulé": "Concierge de nuit",
+    "entreprise": "Hôtel Royal Émeraude",
+    "lieu": "Paris, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein – horaires de nuit",
+    "salaire": "2 100€ brut / mois + primes de nuit",
+    "missions": [
+      "Accueil et assistance des clients pendant la nuit",
+      "Surveillance des accès et gestion des urgences",
+      "Réalisation de tâches administratives et rapports de nuit"
+    ],
+    "compétences_requises": [
+      "Autonomie", "Accueil client", "Sécurité", "Discrétion", "Bonne présentation"
+    ],
+    "niveau_experience": "Expérience de nuit souhaitée",
+    "niveau_etudes": "Niveau Bac minimum",
+    "date_publication": "2025-05-28"
+  },
+   {
+    "id": "job_107",
+    "intitulé": "Commis de cuisine",
+    "entreprise": "Restaurant L’Atelier des Saveurs",
+    "lieu": "Bordeaux, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "1 750€ brut / mois",
+    "missions": [
+      "Assister le chef et les chefs de partie dans les préparations",
+      "Préparer les ingrédients et entretenir le poste de travail",
+      "Respecter les normes d’hygiène et de sécurité"
+    ],
+    "compétences_requises": [
+      "Dextérité", "Esprit d'équipe", "Hygiène alimentaire", "Ponctualité", "Motivation"
+    ],
+    "niveau_experience": "Débutant accepté",
+    "niveau_etudes": "CAP Cuisine ou en cours",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_108",
+    "intitulé": "Responsable Petit-déjeuner",
+    "entreprise": "Hôtel Les Rives Blanches",
+    "lieu": "Annecy, France",
+    "type_contrat": "CDD saisonnier",
+    "durée": "4 mois (juin à septembre)",
+    "salaire": "1 900€ net / mois + logement",
+    "missions": [
+      "Organisation et mise en place du buffet petit-déjeuner",
+      "Accueil et service client en salle",
+      "Gestion des stocks et commandes spécifiques"
+    ],
+    "compétences_requises": [
+      "Autonomie", "Relation client", "Hygiène", "Gestion du temps", "Maîtrise du français et anglais"
+    ],
+    "niveau_experience": "1 saison minimum",
+    "niveau_etudes": "CAP / Bac Pro Hôtellerie",
+    "date_publication": "2025-05-28"
+  },
+  {
+    "id": "job_109",
+    "intitulé": "Directeur(trice) d’hôtel",
+    "entreprise": "Groupe Horizon Hôtels",
+    "lieu": "Dijon, France",
+    "type_contrat": "CDI",
+    "durée": "Temps plein",
+    "salaire": "3 800€ brut / mois + avantages",
+    "missions": [
+      "Supervision de l’ensemble des services (hébergement, restauration, maintenance)",
+      "Gestion des budgets et optimisation des coûts",
+      "Recrutement et encadrement des équipes"
+    ],
+    "compétences_requises": [
+      "Leadership", "Gestion budgétaire", "Connaissances juridiques RH", "Esprit commercial", "Anglais professionnel"
+    ],
+    "niveau_experience": "5 ans en direction hôtelière",
+    "niveau_etudes": "Bac+5 en management hôtelier",
+    "date_publication": "2025-05-28"
+  }
+]
