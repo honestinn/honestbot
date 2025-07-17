@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import ReactMarkdown from 'react-markdown';
 function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -705,7 +705,14 @@ function ChatbotWidget() {
                       </div>
                       <div className="message-content">
                         <div className={`message-bubble ${msg.sender}`}>
-                          {msg.text && <p className="message-text">{msg.text}</p>}
+<ReactMarkdown
+  components={{
+    p: ({ children }) => <p className="message-text">{children}</p>
+  }}
+>
+  {msg.text || ''}
+</ReactMarkdown>
+
                           {renderMessageFiles(msg.files)}
                           <p className={`message-time ${msg.sender}`}>
                             {formatTime(msg.timestamp)}
