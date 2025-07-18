@@ -37,6 +37,8 @@ function ChatbotWidget() {
     setFiles(selectedFiles);
   };
 
+  
+
   const sendMessage = async () => {
     const messageContent = input.trim();
     const hasFiles = files.length > 0;
@@ -59,13 +61,13 @@ function ChatbotWidget() {
       // Créer un FormData pour envoyer les fichiers
       const formData = new FormData();
       formData.append('message', messageContent);
-      files.forEach((file, index) => {
-        formData.append(`file_${index}`, file);
-      });
+      formData.append(`file`, files[0]);
+
       console.log(process.env.REACT_APP_API_HOST)
       const response = await fetch(process.env.REACT_APP_API_HOST +  "/chat", {
         method: "POST",
-        body: formData
+        body: formData,
+        
       });
 
      

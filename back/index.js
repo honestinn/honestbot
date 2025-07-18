@@ -24,126 +24,126 @@ const config = {
 };
 
 // Clustering pour la production
-if (config.clustering && cluster.isMaster) {
-  const numCPUs = os.cpus().length;
-  console.log(`🚀 Master ${process.pid} démarrage avec ${numCPUs} workers`);
+// if (config.clustering && cluster.isMaster) {
+//   const numCPUs = os.cpus().length;
+//   console.log(`🚀 Master ${process.pid} démarrage avec ${numCPUs} workers`);
   
-  for (let i = 0; i < Math.min(numCPUs, 4); i++) {
-    cluster.fork();
-  }
+//   for (let i = 0; i < Math.min(numCPUs, 4); i++) {
+//     cluster.fork();
+//   }
   
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`💀 Worker ${worker.process.pid} died. Restarting...`);
-    cluster.fork();
-  });
+//   cluster.on('exit', (worker, code, signal) => {
+//     console.log(`💀 Worker ${worker.process.pid} died. Restarting...`);
+//     cluster.fork();
+//   });
   
-  return;
-}
+//   return;
+// }
 
 const app = express();
 
 // Initialisation synchrone des dossiers nécessaires
-function initializeDirectoriesSync() {
-  const dirs = [config.tempDir, config.logsDir];
+// function initializeDirectoriesSync() {
+//   const dirs = [config.tempDir, config.logsDir];
   
-  for (const dir of dirs) {
-    if (!fsSync.existsSync(dir)) {
-      fsSync.mkdirSync(dir, { recursive: true });
-      console.log(`📁 Dossier créé: ${dir}`);
-    }
-  }
-}
+//   for (const dir of dirs) {
+//     if (!fsSync.existsSync(dir)) {
+//       fsSync.mkdirSync(dir, { recursive: true });
+//       console.log(`📁 Dossier créé: ${dir}`);
+//     }
+//   }
+// }
 
 // Nettoyage périodique des fichiers temporaires
-async function cleanupTempFiles() {
-  try {
-    const files = await fs.readdir(config.tempDir);
-    const now = Date.now();
-    const maxAge = 60 * 60 * 1000; // 1 heure
+// async function cleanupTempFiles() {
+//   try {
+//     const files = await fs.readdir(config.tempDir);
+//     const now = Date.now();
+//     const maxAge = 60 * 60 * 1000; // 1 heure
     
-    for (const file of files) {
-      const filePath = path.join(config.tempDir, file);
-      try {
-        const stats = await fs.stat(filePath);
-        if (now - stats.mtime.getTime() > maxAge) {
-          await fs.unlink(filePath);
-          console.log(`🗑️ Fichier temporaire supprimé: ${file}`);
-        }
-      } catch (error) {
-        // Fichier déjà supprimé ou inaccessible
-        console.warn(`⚠️ Impossible de nettoyer ${file}:`, error.message);
-      }
-    }
-  } catch (error) {
-    console.error('❌ Erreur nettoyage fichiers temporaires:', error);
-  }
-}
+//     for (const file of files) {
+//       const filePath = path.join(config.tempDir, file);
+//       try {
+//         const stats = await fs.stat(filePath);
+//         if (now - stats.mtime.getTime() > maxAge) {
+//           await fs.unlink(filePath);
+//           console.log(`🗑️ Fichier temporaire supprimé: ${file}`);
+//         }
+//       } catch (error) {
+//         // Fichier déjà supprimé ou inaccessible
+//         console.warn(`⚠️ Impossible de nettoyer ${file}:`, error.message);
+//       }
+//     }
+//   } catch (error) {
+//     console.error('❌ Erreur nettoyage fichiers temporaires:', error);
+//   }
+// }
 
 // Initialiser les dossiers avant de créer les streams
-initializeDirectoriesSync();
+//initializeDirectoriesSync();
 
 // Configuration de logging
-const accessLogStream = fsSync.createWriteStream(
-  path.join(config.logsDir, 'access.log'), 
-  { flags: 'a' }
-);
+// const accessLogStream = fsSync.createWriteStream(
+//   path.join(config.logsDir, 'access.log'), 
+//   { flags: 'a' }
+// );
 
 // Middleware de request ID
-app.use((req, res, next) => {
-  req.id = uuidv4();
-  res.setHeader('X-Request-Id', req.id);
-  next();
-});
+// app.use((req, res, next) => {
+//   req.id = uuidv4();
+//   res.setHeader('X-Request-Id', req.id);
+//   next();
+// });
 
 // Sécurité avec Helmet
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'"],
-      imgSrc: ["'self'", "data:", "https:"],
-    },
-  },
-  crossOriginEmbedderPolicy: false
-}));
+// app.use(helmet({
+//   contentSecurityPolicy: {
+//     directives: {
+//       defaultSrc: ["'self'"],
+//       styleSrc: ["'self'", "'unsafe-inline'"],
+//       scriptSrc: ["'self'"],
+//       imgSrc: ["'self'", "data:", "https:"],
+//     },
+//   },
+//   crossOriginEmbedderPolicy: false
+// }));
 
 // Compression
-app.use(compression({
-  filter: (req, res) => {
-    if (req.headers['x-no-compression']) {
-      return false;
-    }
-    return compression.filter(req, res);
-  },
-  level: 6,
-  threshold: 1024
-}));
+// app.use(compression({
+//   filter: (req, res) => {
+//     if (req.headers['x-no-compression']) {
+//       return false;
+//     }
+//     return compression.filter(req, res);
+//   },
+//   level: 6,
+//   threshold: 1024
+// }));
 
 // Rate limiting global
-const globalLimiter = rateLimit({
-  windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 100, // 100 requêtes par IP
-  message: {
-    error: "Trop de requêtes de cette IP",
-    retryAfter: 300
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-  skip: (req) => {
-    return req.path === '/health' || req.path === '/metrics';
-  }
-});
+// const globalLimiter = rateLimit({
+//   windowMs: 5 * 60 * 1000, // 5 minutes
+//   max: 100, // 100 requêtes par IP
+//   message: {
+//     error: "Trop de requêtes de cette IP",
+//     retryAfter: 300
+//   },
+//   standardHeaders: true,
+//   legacyHeaders: false,
+//   skip: (req) => {
+//     return req.path === '/health' || req.path === '/metrics';
+//   }
+// });
 
 // Rate limiting spécifique pour les uploads
-const uploadLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // 10 uploads par IP
-  message: {
-    error: "Limite d'upload atteinte. Veuillez patienter.",
-    retryAfter: 900
-  }
-});
+// const uploadLimiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 10, // 10 uploads par IP
+//   message: {
+//     error: "Limite d'upload atteinte. Veuillez patienter.",
+//     retryAfter: 900
+//   }
+// });
 
 // CORS configuré de manière sécurisée
 const corsOptions = {
@@ -168,7 +168,7 @@ const corsOptions = {
 };
 
 // Application des middlewares
-app.use(globalLimiter);
+//app.use(globalLimiter);
 app.use(cors(corsOptions));
 
 // Logging conditionnel
@@ -195,82 +195,83 @@ app.use(express.urlencoded({
 }));
 
 // Configuration des uploads
-const fileUpload = require('express-fileupload');
-app.use(fileUpload({
-  limits: { 
-    fileSize: config.maxFileSize,
-    files: 5
-  },
-  abortOnLimit: true,
-  responseOnLimit: "Fichier trop volumineux (max 10MB)",
-  safeFileNames: true,
-  preserveExtension: true,
-  useTempFiles: true,
-  tempFileDir: config.tempDir,
-  createParentPath: true,
-  parseNested: true,
-  debug: config.nodeEnv === 'development'
-}));
+// const fileUpload = require('express-fileupload');
+// app.use(fileUpload({
+//   limits: { 
+//     fileSize: config.maxFileSize,
+//     files: 5
+//   },
+//   abortOnLimit: true,
+//   responseOnLimit: "Fichier trop volumineux (max 10MB)",
+//   safeFileNames: true,
+//   preserveExtension: true,
+//   useTempFiles: true,
+//   tempFileDir: config.tempDir,
+//   createParentPath: true,
+//   parseNested: true,
+//   debug: config.nodeEnv === 'development'
+// }));
 
 // Types de fichiers autorisés
-const ALLOWED_FILE_TYPES = {
-  'application/pdf': { ext: 'pdf', category: 'document' },
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': { ext: 'docx', category: 'document' },
-  'application/msword': { ext: 'doc', category: 'document' },
-  'text/plain': { ext: 'txt', category: 'text' },
-  'image/jpeg': { ext: 'jpg', category: 'image' },
-  'image/png': { ext: 'png', category: 'image' },
-  'image/webp': { ext: 'webp', category: 'image' },
-  'application/vnd.ms-excel': { ext: 'xls', category: 'spreadsheet' },
-  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': { ext: 'xlsx', category: 'spreadsheet' }
-};
+// const ALLOWED_FILE_TYPES = {
+//   'application/pdf': { ext: 'pdf', category: 'document' },
+//   'application/vnd.openxmlformats-officedocument.wordprocessingml.document': { ext: 'docx', category: 'document' },
+//   'application/msword': { ext: 'doc', category: 'document' },
+//   'text/plain': { ext: 'txt', category: 'text' },
+//   'image/jpeg': { ext: 'jpg', category: 'image' },
+//   'image/png': { ext: 'png', category: 'image' },
+//   'image/webp': { ext: 'webp', category: 'image' },
+//   'application/vnd.ms-excel': { ext: 'xls', category: 'spreadsheet' },
+//   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': { ext: 'xlsx', category: 'spreadsheet' }
+// };
 
 // Middleware de validation des fichiers
-app.use((req, res, next) => {
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return next();
-  }
+// app.use((req, res, next) => {
+//   console.log(req.files)
+//   if (!req.files || Object.keys(req.files).length === 0) {
+//     return next();
+//   }
   
-  const files = Array.isArray(req.files.files) ? req.files.files : [req.files.files];
-  const validationErrors = [];
+//   const files = Array.isArray(req.files.files) ? req.files.files : [req.files.files];
+//   const validationErrors = [];
   
-  for (const file of files.filter(Boolean)) {
-    const fileType = ALLOWED_FILE_TYPES[file.mimetype];
-    if (!fileType) {
-      validationErrors.push(`Type non supporté: ${file.name} (${file.mimetype})`);
-      continue;
-    }
+//   for (const file of files.filter(Boolean)) {
+//     const fileType = ALLOWED_FILE_TYPES[file.mimetype];
+//     if (!fileType) {
+//       validationErrors.push(`Type non supporté: ${file.name} (${file.mimetype})`);
+//       continue;
+//     }
     
-    const fileExt = path.extname(file.name).toLowerCase().substring(1);
-    if (fileExt !== fileType.ext) {
-      validationErrors.push(`Extension incorrecte: ${file.name}`);
-      continue;
-    }
+//     const fileExt = path.extname(file.name).toLowerCase().substring(1);
+//     if (fileExt !== fileType.ext) {
+//       validationErrors.push(`Extension incorrecte: ${file.name}`);
+//       continue;
+//     }
     
-    if (!/^[a-zA-Z0-9._-]+$/.test(file.name.replace(/\s/g, '_'))) {
-      validationErrors.push(`Nom de fichier invalide: ${file.name}`);
-      continue;
-    }
+//     if (!/^[a-zA-Z0-9._-]+$/.test(file.name.replace(/\s/g, '_'))) {
+//       validationErrors.push(`Nom de fichier invalide: ${file.name}`);
+//       continue;
+//     }
     
-    file.metadata = {
-      category: fileType.category,
-      validatedType: fileType.ext,
-      uploadTime: new Date().toISOString(),
-      requestId: req.id
-    };
-  }
+//     file.metadata = {
+//       category: fileType.category,
+//       validatedType: fileType.ext,
+//       uploadTime: new Date().toISOString(),
+//       requestId: req.id
+//     };
+//   }
   
-  if (validationErrors.length > 0) {
-    return res.status(400).json({
-      error: "Validation des fichiers échouée",
-      details: validationErrors,
-      allowedTypes: Object.keys(ALLOWED_FILE_TYPES),
-      requestId: req.id
-    });
-  }
+//   if (validationErrors.length > 0) {
+//     return res.status(400).json({
+//       error: "Validation des fichiers échouée",
+//       details: validationErrors,
+//       allowedTypes: Object.keys(ALLOWED_FILE_TYPES),
+//       requestId: req.id
+//     });
+//   }
   
-  next();
-});
+//   next();
+// });
 
 // Middleware de monitoring des performances
 app.use((req, res, next) => {
@@ -290,7 +291,7 @@ app.use((req, res, next) => {
 const chatRoute = require(path.join(__dirname, 'routes', 'chat.js'));
 
 // Routes principales
-app.use("/api/chat", uploadLimiter, chatRoute);
+app.use("/api/chat", chatRoute);
 
 // Route de santé
 app.get("/health", async (req, res) => {
@@ -444,33 +445,33 @@ app.use((err, req, res, next) => {
 });
 
 // Gestion des signaux système
-process.on('SIGTERM', gracefulShutdown);
-process.on('SIGINT', gracefulShutdown);
+// process.on('SIGTERM', gracefulShutdown);
+// process.on('SIGINT', gracefulShutdown);
 
-async function gracefulShutdown(signal) {
-  console.log(`\n🔄 Arrêt gracieux suite au signal ${signal}`);
+// async function gracefulShutdown(signal) {
+//   console.log(`\n🔄 Arrêt gracieux suite au signal ${signal}`);
   
-  try {
-    await cleanupTempFiles();
-    console.log('✅ Nettoyage des fichiers temporaires terminé');
-  } catch (error) {
-    console.error('❌ Erreur lors du nettoyage:', error);
-  }
+//   try {
+//     await cleanupTempFiles();
+//     console.log('✅ Nettoyage des fichiers temporaires terminé');
+//   } catch (error) {
+//     console.error('❌ Erreur lors du nettoyage:', error);
+//   }
   
-  process.exit(0);
-}
+//   process.exit(0);
+// }
 
 // Gestion des erreurs non capturées
-process.on('uncaughtException', (err) => {
-  console.error('❌ Exception non capturée:', err);
-  process.exit(1);
-});
+// process.on('uncaughtException', (err) => {
+//   console.error('❌ Exception non capturée:', err);
+//   process.exit(1);
+// });
 
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('❌ Promesse rejetée non gérée:', reason);
-  console.error('À:', promise);
-  // Ne pas arrêter le processus pour les rejets de promesses
-});
+// process.on('unhandledRejection', (reason, promise) => {
+//   console.error('❌ Promesse rejetée non gérée:', reason);
+//   console.error('À:', promise);
+//   // Ne pas arrêter le processus pour les rejets de promesses
+// });
 
 // Démarrage du serveur
 async function startServer() {
@@ -492,7 +493,7 @@ async function startServer() {
     server.headersTimeout = 66000;
     
     // Nettoyage périodique toutes les heures
-    setInterval(cleanupTempFiles, 60 * 60 * 1000);
+   // setInterval(cleanupTempFiles, 60 * 60 * 1000);
     
   } catch (error) {
     console.error('❌ Erreur démarrage serveur:', error);

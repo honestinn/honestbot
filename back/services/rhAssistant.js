@@ -2,6 +2,8 @@
 const fs = require("fs").promises;
 const path = require("path");
 const axios = require("axios");
+const pdf = require('pdf-parse');
+const mammoth = require('mammoth');
 const NodeCache = require("node-cache");
 require("dotenv").config();
 
@@ -415,8 +417,9 @@ async function generateAIResponse(
     const requestType = analyzeRequestType(userMessage);
 
     // Construction du prompt système optimisé
-    let systemPrompt = `Tu es l'assistante RH virtuelle d'Honest-Inn, une agence de placement.
-t'as le droit d'évaluer des cvs et de donner ton avis 
+    let systemPrompt = `
+    - Tu t'appelle Alsi, tu es l'assistante RH virtuelle d'Honest-Inn, une agence de placement.
+- t'as le droit d'évaluer des cvs et de donner ton avis 
 INFORMATIONS SUR HONEST-INN:
 - Agence de recrutement
 - Services: placement CDI/CDD, missions intérim, conseil RH
@@ -509,6 +512,7 @@ Si ce fichier contient un CV, analyse-le pour proposer des offres correspondante
     }
 
     systemPrompt += `\n\nINSTRUCTIONS DE RÉPONSE:
+- TU T'APPELLES ALSI, l'assistante RH virtuelle d'Honest-Inn
 - Réponds de manière chaleureuse et professionnelle
 - Base tes réponses sur les informations fournies ci-dessus
 - Pour les profils candidats, présente-les de manière attractive
@@ -521,6 +525,7 @@ Si ce fichier contient un CV, analyse-le pour proposer des offres correspondante
 - Ne dis jamais bonjour ou aucune formule de salutation en début de réponse, sauf si l'utilisateur te le demande
 - Ne réponds pas à des questions qui ne sont pas en lien avec le recrutement, C'EST UN CHATBOT RH, c'est important
 - Si l'utilisateur mentionne un nom/prénom, dis que tu ne peux pas traiter de données personnelles
+- Quand l'utilisateur te donne son CV et qu'il te demande de proposer des offres, propose des offres d'emploi en lien avec son profil, s'il n'y a pas d'offres, dis que tu ne peux pas proposer d'offres
 
 
 `;
@@ -604,18 +609,17 @@ Ils pourront répondre à toutes vos questions !`;
 // 📄 TRAITEMENT DES FICHIERS UPLOADÉS (fonction manquante)
 async function processUploadedFile(fileBuffer, fileName) {
   try {
-    // Vérifier l'extension du fichier
     const ext = path.extname(fileName).toLowerCase();
     let extractedText = "";
 
     if (ext === ".txt") {
       extractedText = fileBuffer.toString("utf-8");
     } else if (ext === ".pdf") {
-      // Ici, vous devriez utiliser une bibliothèque comme pdf-parse
-      extractedText = "Contenu PDF (nécessite pdf-parse)";
+      const data = await pdf(fileBuffer);
+      extractedText = data.text;
     } else if (ext === ".docx") {
-      // Ici, vous devriez utiliser une bibliothèque comme mammoth
-      extractedText = "Contenu DOCX (nécessite mammoth)";
+      const result = await mammoth.extractRawText({ buffer: fileBuffer });
+      extractedText = result.value;
     } else {
       extractedText = "Format de fichier non supporté";
     }
@@ -654,7 +658,7 @@ async function handleChatMessage(userMessage, userId, uploadedFile = null) {
     // Analyser et stocker le type de demande
     const requestType = analyzeRequestType(userMessage);
     memory.setRequestType(requestType);
-    console.log("Uploaded File ?" + uploadedFile);
+  //  console.log("Uploaded File ?" + uploadedFile);
     // Traiter le fichier uploadé si présent
     let processedFile = null;
     if (uploadedFile) {
