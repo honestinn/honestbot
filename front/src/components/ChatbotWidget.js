@@ -17,6 +17,9 @@ function ChatbotWidget() {
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const fileInputRef = useRef(null);
+  const [fileInputKey, setFileInputKey] = useState(Date.now());
+
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -32,10 +35,12 @@ function ChatbotWidget() {
     }
   }, [isOpen, isMinimized]);
 
-  const handleFileChange = (e) => {
-    const selectedFiles = Array.from(e.target.files);
-    setFiles(selectedFiles);
-  };
+const handleFileChange = (e) => {
+  const selectedFiles = Array.from(e.target.files);
+  setFiles(prevFiles => [...prevFiles, ...selectedFiles]);
+  setFileInputKey(Date.now()); // Mettre à jour la clé pour réinitialiser l'input
+};
+
 
   
 
@@ -768,14 +773,15 @@ function ChatbotWidget() {
                         >
                           📎
                         </button>
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          onChange={handleFileChange}
-                          style={{ display: 'none' }}
-                          
-                          accept=".pdf,.jpg,.jpeg,.png,.gif,.txt"
-                        />
+<input
+  key={fileInputKey} // Utilisation de la clé pour forcer le re-rendu
+  type="file"
+  ref={fileInputRef}
+  onChange={handleFileChange}
+  style={{ display: 'none' }}
+  accept=".pdf,.jpg,.jpeg,.png,.gif,.txt"
+/>
+
                         
                         <textarea
                           ref={inputRef}
@@ -814,5 +820,3 @@ function ChatbotWidget() {
 }
 
 export default ChatbotWidget;
-
-
