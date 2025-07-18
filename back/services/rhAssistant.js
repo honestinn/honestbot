@@ -23,7 +23,7 @@ class MemoryManager {
     if (!this.conversations.has(userId)) {
       this.conversations.set(userId, {
         memory: new ConversationMemory(userId),
-        lastActivity: Date.now()
+        lastActivity: Date.now(),
       });
     } else {
       this.conversations.get(userId).lastActivity = Date.now();
@@ -519,8 +519,9 @@ Si ce fichier contient un CV, analyse-le pour proposer des offres correspondante
 - Utilise des emojis pour rendre la réponse engageante
 - Respecte la confidentialité des données personnelles
 - Ne dis jamais bonjour ou aucune formule de salutation en début de réponse, sauf si l'utilisateur te le demande
-- Ne réponds pas à des questions qui ne sont pas en lien avec le recrutement
+- Ne réponds pas à des questions qui ne sont pas en lien avec le recrutement, C'EST UN CHATBOT RH, c'est important
 - Si l'utilisateur mentionne un nom/prénom, dis que tu ne peux pas traiter de données personnelles
+
 
 `;
 
